@@ -24,6 +24,12 @@ CONFIG_TARGET_ROOTFS_PARTSIZE=512 #根512MB  .config文件里面修改
                       
                       
    2    diy-part2.sh  :   配置固件信息(详情入内查看）
+         
+         01.配置ip信息：sed -i 's/192.168.1.1/192.168.0.x/g' package/base-files/files/bin/config_generate
+         02.默认没有密码：sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
+         03.修改默认主题：sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci/Makefile
+         
+         
    
    3    .config       :   自定义插件(可自行添加删减)
             
@@ -39,17 +45,7 @@ CONFIG_TARGET_ROOTFS_PARTSIZE=512 #根512MB  .config文件里面修改
                          注意查看插件依赖方法：从插件地址打开Makefile文件－－查询DEPENDS
                          
          
-  资源来源：       
-         - [P3TERX](https://github.com/P3TERX/Actions-OpenWrt)
-         - [LEDE](https://github.com/coolsnowwolf/lede)
-         - [dockerman](https://github.com/lisaac/luci-app-dockerman)
-         - [poweroff](https://github.com/esirplayground/luci-app-poweroff)
-         - [ssrp](https://github.com/fw876/helloworld)
-         - [passwall](https://github.com/xiaorouji/openwrt-passwall)
-         - [Helloword](https://github.com/jerrykuku/luci-app-vssr)
-         - [OpenClash](https://github.com/vernesong/OpenClash)
-         - [adguardhome](https://github.com/rufengsuixing/luci-app-adguardhome)
-         - [kiddin9](https://github.com/kiddin9/openwrt-packages)
+
            
            
                                       
